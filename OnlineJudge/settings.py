@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-we*#4w46=%$s4yqe4)^fsdilx1c%@g1*(4!%e#_c+hd%teuppb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://online-judge-microsoft-engage.herokuapp.com/']
+ALLOWED_HOSTS = [".herokuapp.com"]
 
 
 # Application definition
