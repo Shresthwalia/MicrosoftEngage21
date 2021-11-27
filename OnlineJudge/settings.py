@@ -127,4 +127,4 @@ STATIC_URL = '/static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Mongodb URL
-MONGODB_URL = os.environ.get('MONGODB_URL', 'mongodb://localhost:27017/')
+MONGODB_URL = os.environ.get('MONGODB_URL', 'mongodb+srv://m001-student:m001-mongodb-basics@sandbox.aopaa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
