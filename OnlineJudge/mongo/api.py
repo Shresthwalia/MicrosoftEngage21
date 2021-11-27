@@ -15,6 +15,6 @@ class MonitoringClusterConnection(object):
         from OnlineJudge import settings
         url = settings.MONGODB_URL
         client = pymongo.MongoClient(url)
-        db = client.monitoring
+        db = client.online_judge
 
         return db

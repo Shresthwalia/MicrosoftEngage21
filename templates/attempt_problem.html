@@ -4,21 +4,7 @@
     <title>
         Select the Problem
     </title>
-
-    <!-- Style to create button -->
-    <style>
-        .BUTTON {
-            background-color: white;
-            border: 2px solid black;
-            color: green;
-            padding: 5px 10px;
-            text-align: center;
-            display: inline-block;
-            font-size: 20px;
-            margin: 10px 30px;
-            cursor: pointer;
-        }
-    </style>
+     <link rel="stylesheet" href="button.css">
 </head>
 <body>
 
@@ -27,7 +13,7 @@
 <form name="problem_details">
     <label for="ID">Enter Problem ID: </label>
     <input type="text" id="ID" name="ID"><br><br>
-    <button class="BUTTON"
+    <button class="three"
     onclick="api_call2()">
         Submit
     </button>
