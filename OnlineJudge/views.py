@@ -16,7 +16,7 @@ def display_home_page(request):
     if request.method != 'GET':
         return
     else:
-        return render(request, 'homepage.html')
+        return render(request, 'OnlineJudge/homepage.html')
 
 
 def show_add_problem_page(request):
@@ -24,7 +24,7 @@ def show_add_problem_page(request):
     if request.method != "GET":
         return
     else:
-        return render(request, 'add_problem.html')
+        return render(request, 'OnlineJudge/add_problem.html')
 
 
 def create_problem(request):
@@ -52,7 +52,7 @@ def add_assignment(request):
     if request.method != 'GET':
         return
     else:
-        return render(request, 'add_assignment.html')
+        return render(request, 'OnlineJudge/add_assignment.html')
 
 
 def display_assignment(request):
@@ -64,7 +64,7 @@ def display_assignment(request):
         db = MonitoringClusterConnection.get_instance()
         collection = db.problem
         assignment = collection.find({'assignment_id': assignment_id})
-        return render(request, 'show_assignment.html', {'problem_id_1': assignment['problem'][0],
+        return render(request, 'OnlineJudge/show_assignment.html', {'problem_id_1': assignment['problem'][0],
                                                         'problem_id_2': assignment['problem'][1],
                                                         'problem_id_3': assignment['problem'][2]})
 
@@ -73,14 +73,14 @@ def attempt_problem(request):
     if request.method != 'GET':
         return
     else:
-        return render(request, 'attempt_problem.html')
+        return render(request, 'OnlineJudge/attempt_problem.html')
 
 
 def attempt_assignment(request):
     if request.method != 'GET':
         return
     else:
-        return render(request,'attempt_assignment.html')
+        return render(request, 'OnlineJudge/attempt_assignment.html')
 
 def create_assignment(request):
     if request.method != 'POST':
@@ -121,7 +121,7 @@ def display_problem(request):
         db = MonitoringClusterConnection.get_instance()
         collection = db.problem
         problem = list(collection.find({'problem_id': uuid.UUID(problem_id)}))
-        return render(request, 'show_problem.html', context=problem[0])
+        return render(request, 'OnlineJudge/show_problem.html', context=problem[0])
 
 
 def get_results(request):
