@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="text-align:center">{{name}}</h1>
+<p style="text-align:center">time limit : {{ time_limit }}</p>
+<p style="text-align:center">memory limit : {{ memory_limit }}</p>
+
+<p>{{statement}}</p>
+<p>Select language</p>
+
+<form name="code_details">
+  <label for="language">Choose a language:</label>
+  <select name="language" id="languages">
+    <option value="python">python</option>
+    <option value="java">java</option>
+    <option value="c++">c++</option>
+  </select>
+  <br><br>
+    <label for="code">Enter code: </label>
+  <textarea name="code" id="code" rows="10" cols="30">The cat was playing in the garden.</textarea><br><br>
+  <input type="button" value="Submit" onclick="api_call2()">
+</form>
+
+<script type="text/javascript">
+    function api_call2(){
+    const data = { problem_id: '{{ problem_id }}', code:  document.code_details.code.value };
+    alert(data['code'])
+    //POST request with body equal on data in JSON format
+    fetch('http://127.0.0.1:8000/getresults/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    //Then with the data from the response in JSON...
+    .then((data) => {
+      console.log('Success: ', data);
+      alert('Verdict :' + data['status'])
+    })
+    //Then with the error genereted...
+    .catch((error) => {
+      console.error('Error: ', error);
+      alert(error)
+    });}
+</script>
+
+</body>
+</html>

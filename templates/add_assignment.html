@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="text-align:center">Add Assignment</h1>
+
+<form name="assignment">
+    <label for="name">Enter First Problem ID</label>
+    <input type="text" id="problem_id_1" name="problem_id_1"><br><br>
+    <label for="name">Enter Second Problem ID</label>
+    <input type="text" id="problem_id_2" name="problem_id_2"><br><br>
+    <label for="name">Enter Third Problem ID</label>
+    <input type="text" id="problem_id_3" name="problem_id_3"><br><br>
+    <input type="button" value="Submit" onclick="api_call3()">
+</form>
+<script>
+    function api_call3(){
+    const data = { problems : [document.assignment.problem_id_1.value,
+                                document.assignment.problem_id_2.value,
+                                document.assignment.problem_id_3.value,
+                                ]
+    };
+
+    //POST request with body equal on data in JSON format
+    fetch('http://127.0.0.1:8000/createassignment/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    //Then with the data from the response in JSON...
+    .then((data) => {
+      console.log('Success:', data);
+      alert('your Assignment ID is '+data['assignment_id'])
+    })
+    //Then with the error generated...
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    }
+</script>
+
+
+
+</body>
+</html>

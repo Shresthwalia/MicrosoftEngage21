@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 style="text-align:center">Add Problem</h1>
+
+<form name="problem">
+    <label for="name">Enter Problem name</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="statement">Enter Problem Statement </label><br>
+      <textarea name="statement" id="statement" rows="10" cols="30">Enter Statement here</textarea><br><br>
+    <label for="time_limit">Enter Time limit </label>
+    <input type="text" id="time_limit" name="time_limit"><br><br>
+    <label for="memory_limit">Enter Memory Limit</label>
+    <input type="text" id="memory_limit" name="memory_limit"><br><br>
+    <label for="testcases">Enter testcases</label><br>
+      <textarea name="testcases" id="testcases" rows="10" cols="30">Enter testcases here</textarea><br><br>
+    <label for="answer">answer</label><br>
+     <textarea name="answer" id="answer" rows="10" cols="30">Enter Expected Output here</textarea><br><br>
+    <input type="button" value="Submit" onclick="api_call3()">
+</form>
+<script>
+    function api_call3(){
+    const data = { name: document.problem.name.value,
+                   statement:  document.problem.statement.value,
+                   time_limit: document.problem.time_limit.value,
+                   memory_limit: document.problem.memory_limit.value,
+                   testcases: document.problem.testcases.value,
+                   answer: document.problem.answer.value,
+    };
+
+    //POST request with body equal on data in JSON format
+    fetch('http://127.0.0.1:8000/createproblem/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    //Then with the data from the response in JSON...
+    .then((data) => {
+      console.log('Success:', data);
+      alert('your Problem ID is '+data['problem_id'])
+    })
+    //Then with the error genereted...
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+    }
+</script>
+
+
+
+</body>
+</html>
