@@ -28,7 +28,7 @@ urlpatterns = [
     url(r'^getproblem/', csrf_exempt(views.get_problem)),
     url(r'^displayproblem/', csrf_exempt(views.display_problem)),
     url(r'^getresults/', csrf_exempt(views.get_results)),
-    path(r'^addproblem/', csrf_exempt(views.show_add_problem_page)),
+    url(r'^addproblem/', csrf_exempt(views.show_add_problem_page)),
     url(r'^addassignment/', csrf_exempt(views.add_assignment)),
     url(r'^attemptproblem/', csrf_exempt(views.attempt_problem)),
     url(r'^displayassignment/', csrf_exempt(views.attempt_problem)),

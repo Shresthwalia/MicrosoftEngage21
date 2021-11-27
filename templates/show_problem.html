@@ -27,7 +27,7 @@
     const data = { problem_id: '{{ problem_id }}', code:  document.code_details.code.value };
     alert(data['code'])
     //POST request with body equal on data in JSON format
-    fetch('http://127.0.0.1:8000/getresults/', {
+    fetch('https://online-judge-microsoft-engage.herokuapp.com/getresults/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
