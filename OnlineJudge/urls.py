@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
 
@@ -34,3 +35,4 @@ urlpatterns = [
     url(r'^displayassignment/', csrf_exempt(views.attempt_problem)),
     url(r'^attemptassignment/',csrf_exempt(views.attempt_assignment))
 ]
+urlpatterns += staticfiles_urlpatterns()
