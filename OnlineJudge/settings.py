@@ -132,5 +132,3 @@ MONGODB_URL = os.environ.get('MONGODB_URL', 'mongodb+srv://m001-student:m001-mon
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# Activate Django-Heroku.
-django_heroku.settings(locals())
