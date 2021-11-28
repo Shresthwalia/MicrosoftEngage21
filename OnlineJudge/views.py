@@ -143,9 +143,8 @@ def get_results(request):
         with open('OnlineJudge/inputs/input.txt', 'w') as f:
             f.write(problem[0]['testcases'])
             f.close()
-
         import subprocess
-        if subprocess.call(["g++", "inputs/solution.cpp"]) == 0:
+        if subprocess.call(["g++", "OnlineJudge/inputs/solution.cpp"], shell=True) == 0:
             subprocess.call(["./a.out <'OnlineJudge/inputs/input.txt' >'inputs/output.txt'"], shell=True)
         else:
             return JsonResponse({'status': "compilation error"})
