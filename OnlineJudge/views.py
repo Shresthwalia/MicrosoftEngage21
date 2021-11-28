@@ -145,12 +145,12 @@ def get_results(request):
             f.close()
 
         import subprocess
-        if subprocess.call(["g++", "OnlineJudge/inputs/solution.cpp"]) == 0:
-            subprocess.call(["./a.out <'OnlineJudge/inputs/input.txt' >'OnlineJudge/inputs/output.txt'"], shell=True)
+        if subprocess.call(["g++", "inputs/solution.cpp"]) == 0:
+            subprocess.call(["./a.out <'OnlineJudge/inputs/input.txt' >'inputs/output.txt'"], shell=True)
         else:
             return JsonResponse({'status': "compilation error"})
 
-        with open('OnlineJudge/inputs/output.txt', 'r') as f:
+        with open('inputs/output.txt', 'r') as f:
             output = f.read()
             f.close()
 
