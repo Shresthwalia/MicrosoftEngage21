@@ -144,7 +144,7 @@ def get_results(request):
             f.write(problem[0]['testcases'])
             f.close()
         import subprocess
-        if subprocess.call(["python OnlineJudge/inputs/solution.py -i OnlineJudge/inputs/input.txt -o OnlineJudge/inputs/output.txt"], ) == 0:
+        if subprocess.call(["python OnlineJudge/inputs/solution.py -i OnlineJudge/inputs/input.txt -o OnlineJudge/inputs/output.txt"], shell=True) == 0:
             return JsonResponse({'status': "compilation error"})
 
         with open('inputs/output.txt', 'r') as f:
