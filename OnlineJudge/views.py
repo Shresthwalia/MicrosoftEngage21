@@ -132,7 +132,7 @@ def get_results(request):
         code = body['code']
         problem_id = body['problem_id']
 
-        with open('OnlineJudge/inputs/solution.cpp', 'w') as f:
+        with open('OnlineJudge/inputs/solution.py', 'w') as f:
             f.write(code)
             f.close()
 
@@ -144,9 +144,7 @@ def get_results(request):
             f.write(problem[0]['testcases'])
             f.close()
         import subprocess
-        if subprocess.call(["g++", "OnlineJudge/inputs/solution.cpp"], ) == 0:
-            subprocess.call(["./a.out <'OnlineJudge/inputs/input.txt' >'inputs/output.txt'"], shell=True)
-        else:
+        if subprocess.call(["python OnlineJudge/inputs/solution.py -i OnlineJudge/inputs/input.txt -o OnlineJudge/inputs/output.txt"], ) == 0:
             return JsonResponse({'status': "compilation error"})
 
         with open('inputs/output.txt', 'r') as f:
