@@ -98,9 +98,6 @@ input[type=submit]:hover {
     //POST request with body equal on data in JSON format
     fetch('https://online-judge-microsoft-engage.herokuapp.com/getresults/', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(data),
     })
     .then((response) => response.json())
