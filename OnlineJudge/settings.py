@@ -131,7 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Mongodb URL
 MONGODB_URL = os.environ.get('MONGODB_URL', 'mongodb+srv://m001-student:m001-mongodb-basics@sandbox.aopaa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
 
-STATIC_ROOT = ''
-STATICFILES_DIRS = (os.path.join('static'), )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'OnlineJudge/static'),
+)
 
 
